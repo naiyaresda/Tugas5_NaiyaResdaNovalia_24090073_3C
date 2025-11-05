@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Little Resda Resto</title>
+
+  <!-- Font elegan & feminin -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@600;700&family=Quicksand:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #ffe6f1, #ffeaf5);
+      font-family: 'Nunito', sans-serif;
+      color: #4a154b;
+      font-size: 1.25rem;
+      line-height: 1.8;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 60px auto;
+      background-color: #fff0f6;
+      border-radius: 30px;
+      padding: 50px;
+      box-shadow: 0 10px 36px rgba(255, 105, 180, 0.25);
+      animation: fadeIn 0.8s ease;
+    }
+
+    /* Judul utama */
+    h1 {
+      text-align: center;
+      color: #c2185b;
+      font-family: 'Great Vibes', cursive;
+      font-size: 5.5rem;
+      font-weight: 500;
+      margin-bottom: 10px;
+      letter-spacing: 1.5px;
+      text-shadow: 0 4px 15px rgba(255, 105, 180, 0.5);
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    /* Subtitle di bawah judul */
+    .subtitle {
+      text-align: center;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #ad1457;
+      margin-bottom: 45px;
+      letter-spacing: 1px;
+    }
+
+    /* Efek lembut berkilau */
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #f8bbd0, 0 0 20px #f48fb1, 0 0 30px #ec407a;
+      }
+      to {
+        text-shadow: 0 0 20px #f8bbd0, 0 0 30px #f06292, 0 0 40px #d81b60;
+      }
+    }
+
+    label {
+      font-family: 'Quicksand', sans-serif;
+      color: #ad1457;
+      font-weight: 600;
+      font-size: 1.4rem;
+      display: block;
+      margin-top: 20px;
+      margin-bottom: 8px;
+      letter-spacing: 0.3px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 16px 18px;
+      border-radius: 14px;
+      border: 1px solid #f8bbd0;
+      outline: none;
+      transition: all 0.25s ease;
+      font-size: 1.25rem;
+      background-color: #ffffff;
+      line-height: 1.6;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #f06292;
+      box-shadow: 0 0 12px rgba(240, 98, 146, 0.5);
+      transform: scale(1.01);
+    }
+
+    #foto {
+      margin-bottom: 10px;
+    }
+
+    /* Preview gambar */
+    #preview {
+      display: none;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    #preview img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 3px solid #f8bbd0;
+      box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
+      animation: fadeIn 0.6s ease;
+    }
+
+    /* Tombol simpan */
+    button {
+      width: 100%;
+      padding: 18px;
+      border: none;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #f8a8d3, #f06292, #e91e63);
+      color: #fff8f0;
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 700;
+      font-size: 1.6rem;
+      cursor: pointer;
+      letter-spacing: 1px;
+      margin-top: 10px;
+      box-shadow: 0 6px 20px rgba(240, 98, 146, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #f06292, #ec407a, #f48fb1);
+      box-shadow: 0 8px 26px rgba(236, 64, 122, 0.5);
+      color: #fffef9;
+      transform: scale(1.03);
+    }
+
+    h2 {
+      margin-top: 32px;
+      color: #c2185b;
+      border-bottom: 3px solid #f8bbd0;
+      padding-bottom: 12px;
+      font-size: 2.2rem;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 8px rgba(255,182,193,0.4);
+    }
+
+    .card {
+      background-color: #ffffff;
+      padding: 36px;
+      border-radius: 20px;
+      margin-top: 30px;
+      box-shadow: 0 6px 18px rgba(255, 105, 180, 0.18);
+      animation: fadeIn 0.8s ease;
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 18px;
+      border-radius: 14px;
+      background: #fff6fa;
+      box-shadow: 0 3px 10px rgba(255, 105, 180, 0.12);
+      transition: transform 0.2s;
+    }
+
+    .menu-item:hover {
+      transform: scale(1.02);
+    }
+
+    .menu-item img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 3px solid #f8bbd0;
+    }
+
+    .menu-info h3 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #ad1457;
+      margin-bottom: 8px;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    .menu-info p {
+      font-size: 1.2rem;
+      color: #4a154b;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    .menu-info .harga {
+      margin-top: 10px;
+      font-weight: 700;
+      color: #d63384;
+      font-size: 1.3rem;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    #totalHarga {
+      font-size: 1.6rem;
+      color: #ad1457;
+      font-weight: 700;
+      margin-top: 25px;
+      text-align: right;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Little Resda Resto</h1>
+    <p class="subtitle">Your Lovely Homemade Taste 💕</p>
+
+    <div class="card">
+      <h2>Tambah Menu</h2>
+      <form id="formMenu">
+        <label for="nama">Nama</label>
+        <input type="text" id="nama" required />
+
+        <label for="harga">Harga (Rp.)</label>
+        <input type="text" id="harga" required />
+
+        <label for="deskripsi">Deskripsi</label>
+        <textarea id="deskripsi" rows="3"></textarea>
+
+        <label for="foto">Foto URL</label>
+        <input type="text" id="foto" placeholder="Tempel link gambar di sini..." />
+        <div id="preview"></div>
+
+        <button type="submit">Simpan Menu</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>Daftar Menu</h2>
+      <div id="menuList" class="space-y-3"></div>
+    </div>
+
+    <div class="card">
+      <h2>Daftar Pesanan</h2>
+      <ul id="orderList" class="space-y-3"></ul>
+      <p id="totalHarga" class="font-semibold mt-2"></p>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
